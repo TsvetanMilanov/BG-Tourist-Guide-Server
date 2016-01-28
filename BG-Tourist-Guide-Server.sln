@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BGTouristGuide.Data", "Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BGTouristGuide.Models", "Data\BGTouristGuide.Models\BGTouristGuide.Models.csproj", "{BD7B372D-4737-4DA2-B19B-5B0F92751F00}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BGTouristGuide.Common", "Common\BGTouristGuide.Common\BGTouristGuide.Common.csproj", "{4D2F12DC-FF8C-4B69-9678-79BE098E6470}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{BD7B372D-4737-4DA2-B19B-5B0F92751F00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD7B372D-4737-4DA2-B19B-5B0F92751F00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD7B372D-4737-4DA2-B19B-5B0F92751F00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D2F12DC-FF8C-4B69-9678-79BE098E6470}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D2F12DC-FF8C-4B69-9678-79BE098E6470}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D2F12DC-FF8C-4B69-9678-79BE098E6470}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D2F12DC-FF8C-4B69-9678-79BE098E6470}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,5 +49,6 @@ Global
 		{3EB61982-B111-48BC-AF99-81BBD2062FCA} = {615197CF-53B8-4891-B15E-EA91E27F96F0}
 		{D7F4C7D7-DE85-4C15-8FC4-EC9C8922B29D} = {0A77799C-D8FE-4E51-B753-CEFD8D2D15CC}
 		{BD7B372D-4737-4DA2-B19B-5B0F92751F00} = {0A77799C-D8FE-4E51-B753-CEFD8D2D15CC}
+		{4D2F12DC-FF8C-4B69-9678-79BE098E6470} = {F28B3E68-D2F1-4D21-9C0E-21059F8DC9C6}
 	EndGlobalSection
 EndGlobal

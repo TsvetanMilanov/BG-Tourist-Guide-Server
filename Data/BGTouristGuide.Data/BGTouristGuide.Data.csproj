@@ -58,6 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BGTouristGuideDbContext.cs" />
+    <Compile Include="DataImporters\DataImporter.cs" />
+    <Compile Include="DataImporters\IndexDataImporter.cs" />
+    <Compile Include="DataImporters\RolesDataImporter.cs" />
+    <Compile Include="DataImporters\TouristSitesImporter.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
@@ -68,6 +72,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\BGTouristGuide.Common\BGTouristGuide.Common.csproj">
+      <Project>{4d2f12dc-ff8c-4b69-9678-79be098e6470}</Project>
+      <Name>BGTouristGuide.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BGTouristGuide.Models\BGTouristGuide.Models.csproj">
       <Project>{bd7b372d-4737-4da2-b19b-5b0f92751f00}</Project>
       <Name>BGTouristGuide.Models</Name>

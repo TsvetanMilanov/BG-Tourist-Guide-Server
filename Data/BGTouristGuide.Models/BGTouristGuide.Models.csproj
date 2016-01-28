@@ -57,12 +57,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Badge.cs" />
+    <Compile Include="BadgeTitle.cs" />
+    <Compile Include="Comment.cs" />
+    <Compile Include="QRImage.cs" />
+    <Compile Include="Rating.cs" />
+    <Compile Include="TouristSite.cs" />
+    <Compile Include="TouristSiteStatus.cs" />
+    <Compile Include="TouristSiteType.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\BGTouristGuide.Common\BGTouristGuide.Common.csproj">
+      <Project>{4d2f12dc-ff8c-4b69-9678-79be098e6470}</Project>
+      <Name>BGTouristGuide.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
