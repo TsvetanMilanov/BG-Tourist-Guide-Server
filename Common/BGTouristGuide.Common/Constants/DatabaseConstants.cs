@@ -10,6 +10,10 @@
         public const int MinLastNameLength = 1;
         public const int MaxLastNameLength = 30;
 
+        public const int MaxParentTouristSiteDescriptionLength = 5000;
+        public const int MinParentTouristSiteNameLength = 1;
+        public const int MaxParentTouristSiteNameLength = 100;
+
         public const int MinTouristSiteNameLength = 1;
         public const int MaxTouristSiteNameLength = 100;
 
@@ -30,5 +34,9 @@
 
         public const int MinQRImageLinkLength = 10;
         public const int MaxQRImageLinkLength = 200;
+
+        public const int MinTouristSitePointsValue = 0;
+        public const int MaxGovernmentTouristSitePointsValue = 20;
+        public const int MaxUserTouristSitePointsValue = 10;
     }
 }

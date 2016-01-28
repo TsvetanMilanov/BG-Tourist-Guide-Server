@@ -60,11 +60,12 @@
     <Compile Include="Badge.cs" />
     <Compile Include="BadgeTitle.cs" />
     <Compile Include="Comment.cs" />
+    <Compile Include="ParentTouristSite.cs" />
     <Compile Include="QRImage.cs" />
     <Compile Include="Rating.cs" />
     <Compile Include="TouristSite.cs" />
-    <Compile Include="TouristSiteStatus.cs" />
-    <Compile Include="TouristSiteType.cs" />
+    <Compile Include="ParentTouristSiteStatus.cs" />
+    <Compile Include="ParentTouristSiteType.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,6 +1,6 @@
 ﻿namespace BGTouristGuide.Models
 {
-    public enum TouristSiteStatus
+    public enum ParentTouristSiteStatus
     {
         WaitingForApproval = 0,
         ApprovedForRating = 1,

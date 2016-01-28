@@ -7,14 +7,12 @@
 
     public class TouristSite
     {
-        private ICollection<TouristSite> subTouristSites;
         private ICollection<Comment> comments;
         private ICollection<User> visitors;
         private ICollection<Rating> ratings;
 
         public TouristSite()
         {
-            this.subTouristSites = new HashSet<TouristSite>();
             this.comments = new HashSet<Comment>();
             this.visitors = new HashSet<User>();
             this.ratings = new HashSet<Rating>();
@@ -32,13 +30,7 @@
         [Required]
         public string Description { get; set; }
 
-        public virtual ICollection<TouristSite> SubTouristSites
-        {
-            get { return this.subTouristSites; }
-            set { this.subTouristSites = value; }
-        }
-
-        public TouristSiteStatus Status { get; set; }
+        public ParentTouristSiteStatus Status { get; set; }
 
         public double Latitude { get; set; }
 
@@ -62,11 +54,13 @@
             set { this.ratings = value; }
         }
 
-        public TouristSiteType Type { get; set; }
-
         [MinLength(DatabaseConstants.MinTouristSiteAddressLength)]
         [MaxLength(DatabaseConstants.MaxTouristSiteAddressLength)]
         [Required]
         public string Address { get; set; }
+
+        public int ParentTouristSiteId { get; set; }
+
+        public virtual ParentTouristSite ParentTouristSite { get; set; }
     }
 }

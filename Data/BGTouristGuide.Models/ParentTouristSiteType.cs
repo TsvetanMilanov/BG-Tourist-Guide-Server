@@ -1,6 +1,6 @@
 ﻿namespace BGTouristGuide.Models
 {
-    public enum TouristSiteType
+    public enum ParentTouristSiteType
     {
         GovernemtDefined = 0,
         UserDefined = 1

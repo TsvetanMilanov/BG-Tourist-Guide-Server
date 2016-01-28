@@ -19,6 +19,7 @@
         }
 #endif
 
+        public virtual IDbSet<ParentTouristSite> ParentTouristSites { get; set; }
         public virtual IDbSet<TouristSite> TouristSites { get; set; }
         public virtual IDbSet<Badge> Badges { get; set; }
         public virtual IDbSet<Comment> Comments { get; set; }
