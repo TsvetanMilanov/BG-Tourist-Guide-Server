@@ -16,6 +16,7 @@ namespace BGTouristGuide.Api
     {
         public void Configuration(IAppBuilder app)
         {
+            AutoMapperConfig.Initialize();
             DatabaseConfig.Initialize();
 
             ConfigureAuth(app);
