@@ -31,7 +31,5 @@
         }
 
         public ParentTouristSiteType Type { get; set; }
-
-        public ParentTouristSiteStatus Status { get; set; }
     }
 }

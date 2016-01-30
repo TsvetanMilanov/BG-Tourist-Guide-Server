@@ -64,7 +64,7 @@
     <Compile Include="QRImage.cs" />
     <Compile Include="Rating.cs" />
     <Compile Include="TouristSite.cs" />
-    <Compile Include="ParentTouristSiteStatus.cs" />
+    <Compile Include="TouristSiteStatus.cs" />
     <Compile Include="ParentTouristSiteType.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

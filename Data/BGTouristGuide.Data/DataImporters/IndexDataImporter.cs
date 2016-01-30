@@ -11,10 +11,12 @@
                 return;
             }
 
-            var rolesDataImporter = new RolesDataImporter();
-            var touristSitesDataimporter = new TouristSitesImporter();
+            RolesDataImporter rolesDataImporter = new RolesDataImporter();
+            UsersDataImporter usersDataImporter = new UsersDataImporter();
+            TouristSitesImporter touristSitesDataimporter = new TouristSitesImporter();
 
             rolesDataImporter.Import(db);
+            usersDataImporter.Import(db);
             touristSitesDataimporter.Import(db);
 
             db.SaveChanges();

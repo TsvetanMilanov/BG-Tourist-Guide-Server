@@ -30,7 +30,7 @@
         [Required]
         public string Description { get; set; }
 
-        public ParentTouristSiteStatus Status { get; set; }
+        public TouristSiteStatus Status { get; set; }
 
         public double Latitude { get; set; }
 
