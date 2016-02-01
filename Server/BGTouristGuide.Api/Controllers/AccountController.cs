@@ -21,6 +21,9 @@
     using BGTouristGuide.Api.Results;
     using BGTouristGuide.Models;
 
+    using Common.Constants;
+    using Utilities;
+
     [Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
@@ -266,7 +269,9 @@
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
-                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName);
+                string rolesJson = IdentityUtilities.CreateJsonFromOAuthIdentity(oAuthIdentity);
+
+                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName, rolesJson);
                 Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);
             }
             else
@@ -330,13 +335,28 @@
                 return BadRequest(ModelState);
             }
 
-            var user = new User() { UserName = model.Email, Email = model.Email };
-
-            IdentityResult result = await UserManager.CreateAsync(user, model.Password);
-
-            if (!result.Succeeded)
+            var user = new User()
             {
-                return GetErrorResult(result);
+                UserName = model.UserName,
+                Email = model.Email,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                RegistrationDate = DateTime.Now
+            };
+
+            IdentityResult resultCreateUser = await UserManager.CreateAsync(user, model.Password);
+
+            if (!resultCreateUser.Succeeded)
+            {
+                return GetErrorResult(resultCreateUser);
+            }
+
+            IdentityResult resultAddRoleToUser =
+                await IdentityUtilities.AddRoleToUser(user, UserManager, OAuthDefaults.AuthenticationType, DatabaseConstants.RegularUserRole);
+
+            if (!resultCreateUser.Succeeded)
+            {
+                return GetErrorResult(resultCreateUser);
             }
 
             return Ok();

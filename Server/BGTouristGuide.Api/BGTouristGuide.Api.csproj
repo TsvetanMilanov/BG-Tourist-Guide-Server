@@ -227,6 +227,7 @@
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utilities\IdentityUtilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -246,6 +247,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\BGTouristGuide.Common\BGTouristGuide.Common.csproj">
+      <Project>{4d2f12dc-ff8c-4b69-9678-79be098e6470}</Project>
+      <Name>BGTouristGuide.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\BGTouristGuide.Data\BGTouristGuide.Data.csproj">
       <Project>{d7f4c7d7-de85-4c15-8fc4-ec9c8922b29d}</Project>
       <Name>BGTouristGuide.Data</Name>
@@ -291,7 +296,7 @@
     <Error Condition="!Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <PropertyGroup>
-      <PostBuildEvent>
+    <PostBuildEvent>
         if not exist "$(WebProjectOutputDir)\bin\Roslyn" md "$(WebProjectOutputDir)\bin\Roslyn"
         start /MIN xcopy /s /y /R "$(OutDir)roslyn\*.*" "$(WebProjectOutputDir)\bin\Roslyn"
       </PostBuildEvent>
