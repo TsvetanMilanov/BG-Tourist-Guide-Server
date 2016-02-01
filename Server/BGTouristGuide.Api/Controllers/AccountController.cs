@@ -269,7 +269,7 @@
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
-                string rolesJson = IdentityUtilities.CreateJsonFromOAuthIdentity(oAuthIdentity);
+                string rolesJson = IdentityUtilities.CreateJsonFromOAuthIdentityRoles(oAuthIdentity);
 
                 AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName, rolesJson);
                 Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);

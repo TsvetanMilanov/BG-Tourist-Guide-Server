@@ -12,14 +12,12 @@
 
     public static class IdentityUtilities
     {
-        public static string CreateJsonFromOAuthIdentity(ClaimsIdentity oAuthIdentity)
+        public static string CreateJsonFromOAuthIdentityRoles(ClaimsIdentity oAuthIdentity)
         {
             List<string> roles = oAuthIdentity.Claims
                 .Where(c => c.Type == ClaimTypes.Role)
                 .Select(c => c.Value)
                 .ToList();
-
-            roles.ForEach(r => r = r.Replace("\"", ""));
 
             string result = JsonConvert.SerializeObject(roles);
 
