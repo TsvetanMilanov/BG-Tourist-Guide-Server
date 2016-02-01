@@ -19,7 +19,7 @@
                 .Select(c => c.Value)
                 .ToList();
 
-            roles.ForEach(r => r = r.Replace("\"", string.Empty));
+            roles.ForEach(r => r = r.Replace("\"", ""));
 
             string result = JsonConvert.SerializeObject(roles);
 
