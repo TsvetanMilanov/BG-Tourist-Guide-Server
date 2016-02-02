@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BD7B372D-4737-4DA2-B19B-5B0F92751F00}</ProjectGuid>
+    <ProjectGuid>{BC338B16-80ED-4DAD-B236-899129F43006}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BGTouristGuide.Models</RootNamespace>
-    <AssemblyName>BGTouristGuide.Models</AssemblyName>
+    <RootNamespace>BGTouristGuide.Services</RootNamespace>
+    <AssemblyName>BGTouristGuide.Services</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -57,27 +57,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Badge.cs" />
-    <Compile Include="BadgeTitle.cs" />
-    <Compile Include="Comment.cs" />
-    <Compile Include="ParentTouristSite.cs" />
-    <Compile Include="QRImage.cs" />
-    <Compile Include="Rating.cs" />
-    <Compile Include="TouristSite.cs" />
-    <Compile Include="TouristSiteStatus.cs" />
-    <Compile Include="ParentTouristSiteType.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="TouristSitesServices.cs" />
+    <Compile Include="Contracts\ITouristSitesServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\BGTouristGuide.Common\BGTouristGuide.Common.csproj">
       <Project>{4d2f12dc-ff8c-4b69-9678-79be098e6470}</Project>
       <Name>BGTouristGuide.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Data\BGTouristGuide.Data\BGTouristGuide.Data.csproj">
+      <Project>{d7f4c7d7-de85-4c15-8fc4-ec9c8922b29d}</Project>
+      <Name>BGTouristGuide.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\BGTouristGuide.Models\BGTouristGuide.Models.csproj">
+      <Project>{bd7b372d-4737-4da2-b19b-5b0f92751f00}</Project>
+      <Name>BGTouristGuide.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

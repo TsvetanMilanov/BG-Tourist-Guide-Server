@@ -8,6 +8,7 @@
     using Ninject.Extensions.Conventions;
     using Ninject.Web.Common;
 
+    using Common.Constants;
     using Data;
     using Data.Repositories;
 
@@ -41,10 +42,10 @@
         {
             DependensiesRegistration(kernel);
 
-            //kernel.Bind(k => k
-            //    .From(AssembliesConstants.ServicesAssemblyName)
-            //    .SelectAllClasses()
-            //    .BindDefaultInterface());
+            kernel.Bind(k => k
+                .From(GlobalConstants.ServicesAssemblyName)
+                .SelectAllClasses()
+                .BindDefaultInterface());
         }
     }
 }

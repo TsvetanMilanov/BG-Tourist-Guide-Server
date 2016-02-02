@@ -2,6 +2,8 @@
 {
     public class GlobalConstants
     {
+        public const string ServicesAssemblyName = "BGTouristGuide.Services";
+
         // TODO: Add production application url.
 #if (DEBUG)
         public const string ApplicationUrl = "http://localhost:25906";
