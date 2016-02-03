@@ -1,11 +1,8 @@
 ﻿namespace BGTouristGuide.Services
 {
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
+    using Common.Constants;
     using Contracts;
     using Data.Repositories;
     using Models;
@@ -73,6 +70,17 @@
         {
             var result = this.touristSites.All()
                 .Where(t => t.ParentTouristSiteId == id);
+
+            return result;
+        }
+
+        public IQueryable<string> GetParentTouristSitesNames(int page = 0)
+        {
+            var result = this.parentTouristSites.All()
+                 .OrderBy(p => p.Name)
+                 .Skip(page * GlobalConstants.PageSize)
+                 .Take(GlobalConstants.PageSize)
+                 .Select(p => p.Name);
 
             return result;
         }

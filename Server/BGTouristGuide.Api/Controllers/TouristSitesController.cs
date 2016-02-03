@@ -28,5 +28,14 @@
 
             return this.Json(mappedResult);
         }
+
+        [HttpGet]
+        [Route("Parents/Names")]
+        public IHttpActionResult GetParentTouristSitesnames(int page = 1)
+        {
+            var result = this.touristSites.GetParentTouristSitesNames(page - 1);
+
+            return this.Ok(result);
+        }
     }
 }

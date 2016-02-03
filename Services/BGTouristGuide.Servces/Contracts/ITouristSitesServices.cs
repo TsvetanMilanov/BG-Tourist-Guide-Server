@@ -14,6 +14,8 @@
 
         IQueryable<TouristSite> GetByParentTouristSiteId(int id);
 
+        IQueryable<string> GetParentTouristSitesNames(int page = 0);
+
         ParentTouristSite GetParentTouristSiteById(int id);
 
         TouristSite GetTouristSiteById(int id);
