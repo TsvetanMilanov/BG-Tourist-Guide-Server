@@ -16,9 +16,14 @@
             MapperConfig = new MapperConfiguration(mapper =>
             {
                 mapper.CreateMap<ParentTouristSite, FullTouristSiteResponseModel>();
+
                 mapper.CreateMap<TouristSite, TouristSiteResponseModel>().ForMember(
                     m => m.Rating,
                     opts => opts.MapFrom(t => t.Ratings.Count > 0 ? t.Ratings.Sum(r => r.Value) / t.Ratings.Count : 0));
+
+                mapper.CreateMap<TouristSite, SimpleTouristSiteResponseModel>();
+
+                mapper.CreateMap<ParentTouristSite, SimpleParentTouristSiteResponseModel>();
             });
 
             MapperConfig.AssertConfigurationIsValid();

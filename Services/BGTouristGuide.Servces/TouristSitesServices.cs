@@ -74,7 +74,7 @@
             return result;
         }
 
-        public IQueryable<string> GetParentTouristSitesNames(int page = 0)
+        public IQueryable<ParentTouristSite> GetParentTouristSites(int page = 0, int type = 0)
         {
             if (page < 0)
             {
@@ -82,10 +82,10 @@
             }
 
             var result = this.parentTouristSites.All()
+                 .Where(p => (int)p.Type == type)
                  .OrderBy(p => p.Name)
                  .Skip(page * GlobalConstants.PageSize)
-                 .Take(GlobalConstants.PageSize)
-                 .Select(p => p.Name);
+                 .Take(GlobalConstants.PageSize);
 
             return result;
         }
