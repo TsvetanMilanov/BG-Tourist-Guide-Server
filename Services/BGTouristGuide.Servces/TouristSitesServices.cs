@@ -76,6 +76,11 @@
 
         public IQueryable<string> GetParentTouristSitesNames(int page = 0)
         {
+            if (page < 0)
+            {
+                page = 0;
+            }
+
             var result = this.parentTouristSites.All()
                  .OrderBy(p => p.Name)
                  .Skip(page * GlobalConstants.PageSize)
