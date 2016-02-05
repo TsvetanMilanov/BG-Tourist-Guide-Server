@@ -100,5 +100,21 @@
                 .Skip(page * GlobalConstants.PageSize)
                 .Take(GlobalConstants.PageSize);
         }
+
+        public ParentTouristSite AddParentTouristSite(string name, string description, ParentTouristSiteType type)
+        {
+            ParentTouristSite parentTouristSite = new ParentTouristSite
+            {
+                Name = name,
+                Description = description,
+                Type = type
+            };
+
+            this.parentTouristSites.Add(parentTouristSite);
+
+            this.parentTouristSites.SaveChanges();
+
+            return parentTouristSite;
+        }
     }
 }

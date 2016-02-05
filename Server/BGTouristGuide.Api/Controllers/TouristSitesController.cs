@@ -8,6 +8,7 @@
     using Models.ResponseModels.TouristSites;
     using Services.Contracts;
     using BGTouristGuide.Models;
+    using Models.RequestModels.TouristSites;
     [RoutePrefix("api/TouristSites")]
     public class TouristSitesController : ApiController
     {
@@ -77,6 +78,18 @@
             var mapper = AutoMapperConfig.MapperConfig.CreateMapper();
 
             var mappedResult = mapper.Map<IEnumerable<TouristSiteResponseModel>>(result);
+
+            return this.Json(mappedResult);
+        }
+
+        [HttpPost]
+        public IHttpActionResult AddParentTouristSite(ParentTouristSiteRequestModel model)
+        {
+            var result = this.touristSites.AddParentTouristSite(model.Name, model.Description, model.Type);
+
+            var mapper = AutoMapperConfig.MapperConfig.CreateMapper();
+
+            var mappedResult = mapper.Map<SimpleParentTouristSiteResponseModel>(result);
 
             return this.Json(mappedResult);
         }

@@ -21,5 +21,7 @@
         ParentTouristSite GetParentTouristSiteById(int id);
 
         TouristSite GetTouristSiteById(int id);
+
+        ParentTouristSite AddParentTouristSite(string name, string description, ParentTouristSiteType type);
     }
 }
