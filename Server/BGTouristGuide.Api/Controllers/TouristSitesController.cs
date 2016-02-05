@@ -83,6 +83,7 @@
         }
 
         [HttpPost]
+        [Route("Parents")]
         public IHttpActionResult AddParentTouristSite(ParentTouristSiteRequestModel model)
         {
             var result = this.touristSites.AddParentTouristSite(model.Name, model.Description, model.Type);
