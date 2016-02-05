@@ -1,5 +1,6 @@
 ﻿namespace BGTouristGuide.Services
 {
+    using System;
     using System.Linq;
 
     using Common.Constants;
@@ -88,6 +89,13 @@
                  .Take(GlobalConstants.PageSize);
 
             return result;
+        }
+
+        public IQueryable<TouristSite> GetTouristSitesNearMe(double latitude, double longitude, int page = 0)
+        {
+            // TODO: Add check for latitude and longitude.
+
+            return this.touristSites.All();
         }
     }
 }

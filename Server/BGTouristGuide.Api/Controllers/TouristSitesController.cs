@@ -67,5 +67,18 @@
 
             return this.Json(mappedResult);
         }
+        
+        [HttpGet]
+        [Route("NearMe")]
+        public IHttpActionResult GetTouristSitesNearMe(double latitude, double longitude, int page = 1)
+        {
+            var result = this.touristSites.GetTouristSitesNearMe(latitude, longitude, page - 1);
+
+            var mapper = AutoMapperConfig.MapperConfig.CreateMapper();
+
+            var mappedResult = mapper.Map<IEnumerable<TouristSiteResponseModel>>(result);
+
+            return this.Json(mappedResult);
+        }
     }
 }

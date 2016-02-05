@@ -16,6 +16,8 @@
 
         IQueryable<ParentTouristSite> GetParentTouristSites(int page = 0, int type = 0);
 
+        IQueryable<TouristSite> GetTouristSitesNearMe(double latitude, double longitude, int page = 0);
+
         ParentTouristSite GetParentTouristSiteById(int id);
 
         TouristSite GetTouristSiteById(int id);
