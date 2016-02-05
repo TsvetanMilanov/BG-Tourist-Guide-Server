@@ -95,7 +95,10 @@
         {
             // TODO: Add check for latitude and longitude.
 
-            return this.touristSites.All();
+            return this.touristSites.All()
+                .OrderBy(t => t.Name)
+                .Skip(page * GlobalConstants.PageSize)
+                .Take(GlobalConstants.PageSize);
         }
     }
 }
