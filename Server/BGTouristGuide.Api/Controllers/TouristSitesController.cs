@@ -43,6 +43,19 @@
         }
 
         [HttpGet]
+        [Route("Parents")]
+        public IHttpActionResult GetParentTouristSiteById (int id)
+        {
+            var result = this.touristSites.GetParentTouristSiteById(id);
+
+            var mapper = AutoMapperConfig.MapperConfig.CreateMapper();
+
+            var mappedResult = mapper.Map<FullTouristSiteResponseModel>(result);
+
+            return this.Ok(mappedResult);
+        }
+
+        [HttpGet]
         [Route("Simple")]
         public IHttpActionResult GetSimpleTouristSitesInformation(int id)
         {
@@ -52,7 +65,7 @@
 
             var mappedResult = mapper.Map<IEnumerable<SimpleTouristSiteResponseModel>>(result);
 
-            return this.Ok(mappedResult);
+            return this.Json(mappedResult);
         }
     }
 }
