@@ -12,7 +12,7 @@
 
         public string Description { get; set; }
 
-        public ParentTouristSiteType Type { get; set; }
+        public int Type { get; set; }
 
         public IEnumerable<TouristSiteResponseModel> SubTouristSites { get; set; }
     }

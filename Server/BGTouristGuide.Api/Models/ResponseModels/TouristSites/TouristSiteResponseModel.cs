@@ -10,7 +10,7 @@
 
         public string Description { get; set; }
 
-        public TouristSiteStatus Status { get; set; }
+        public int Status { get; set; }
 
         public double Latitude { get; set; }
 
