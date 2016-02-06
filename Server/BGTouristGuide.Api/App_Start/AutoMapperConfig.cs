@@ -5,6 +5,7 @@
     using AutoMapper;
 
     using BGTouristGuide.Models;
+    using Models.ResponseModels.Common;
     using Models.ResponseModels.TouristSites;
 
     public static class AutoMapperConfig
@@ -31,6 +32,10 @@
                 mapper.CreateMap<TouristSite, SimpleTouristSiteResponseModel>();
 
                 mapper.CreateMap<ParentTouristSite, SimpleParentTouristSiteResponseModel>();
+
+                mapper.CreateMap<User, ScoreboardResponseModel>().ForMember(
+                        m => m.Rating,
+                        opts => opts.MapFrom(u => u.Ratings.Sum(r => r.Value)));
             });
 
             MapperConfig.AssertConfigurationIsValid();

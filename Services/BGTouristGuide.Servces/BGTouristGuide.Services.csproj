@@ -57,6 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IScoreboardServices.cs" />
+    <Compile Include="ScoreboardServices.cs" />
     <Compile Include="TouristSitesServices.cs" />
     <Compile Include="Contracts\ITouristSitesServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
