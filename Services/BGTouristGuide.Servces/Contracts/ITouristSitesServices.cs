@@ -18,6 +18,10 @@
 
         IQueryable<TouristSite> GetTouristSitesNearMe(double latitude, double longitude, int page = 0);
 
+        IQueryable<TouristSite> GetTouristSitesForRating(int page = 0);
+
+        IQueryable<TouristSite> GetTouristSitesForApproving(int page = 0);
+
         ParentTouristSite GetParentTouristSiteById(int id);
 
         TouristSite GetTouristSiteById(int id);

@@ -149,5 +149,27 @@
 
             return touristSite;
         }
+
+        public IQueryable<TouristSite> GetTouristSitesForRating(int page = 0)
+        {
+            var result = this.touristSites.All()
+                .Where(t => t.Status == TouristSiteStatus.ApprovedForRating)
+                .OrderBy(t => t.Name)
+                .Skip(page * GlobalConstants.PageSize)
+                .Take(GlobalConstants.PageSize);
+
+            return result;
+        }
+
+        public IQueryable<TouristSite> GetTouristSitesForApproving(int page = 0)
+        {
+            var result = this.touristSites.All()
+                .Where(t => t.Status == TouristSiteStatus.WaitingForApproval)
+                .OrderBy(t => t.Name)
+                .Skip(page * GlobalConstants.PageSize)
+                .Take(GlobalConstants.PageSize);
+
+            return result;
+        }
     }
 }

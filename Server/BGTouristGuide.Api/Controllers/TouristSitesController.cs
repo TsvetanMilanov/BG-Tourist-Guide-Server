@@ -45,7 +45,7 @@
 
         [HttpGet]
         [Route("Parents")]
-        public IHttpActionResult GetParentTouristSiteById (int id)
+        public IHttpActionResult GetParentTouristSiteById(int id)
         {
             var result = this.touristSites.GetParentTouristSiteById(id);
 
@@ -68,7 +68,33 @@
 
             return this.Json(mappedResult);
         }
-        
+
+        [HttpGet]
+        [Route("ForRating")]
+        public IHttpActionResult GetTouristSitesForRating(int page = 1)
+        {
+            var result = this.touristSites.GetTouristSitesForRating(page - 1);
+
+            var mapper = AutoMapperConfig.MapperConfig.CreateMapper();
+
+            var mappedResult = mapper.Map<IEnumerable<TouristSiteResponseModel>>(result);
+
+            return this.Json(mappedResult);
+        }
+
+        [HttpGet]
+        [Route("ForApproving")]
+        public IHttpActionResult GetTouristSitesForApproving(int page = 1)
+        {
+            var result = this.touristSites.GetTouristSitesForApproving(page - 1);
+
+            var mapper = AutoMapperConfig.MapperConfig.CreateMapper();
+
+            var mappedResult = mapper.Map<IEnumerable<TouristSiteResponseModel>>(result);
+
+            return this.Json(mappedResult);
+        }
+
         [HttpGet]
         [Route("NearMe")]
         public IHttpActionResult GetTouristSitesNearMe(double latitude, double longitude, int page = 1)
@@ -100,7 +126,7 @@
         {
             var result = this.touristSites.AddTouristSite(
                 model.Name,
-                model.Description, 
+                model.Description,
                 model.Address,
                 model.Latitude,
                 model.Longitude,
