@@ -94,5 +94,23 @@
 
             return this.Json(mappedResult);
         }
+
+        [HttpPost]
+        public IHttpActionResult AddTouristSite(TouristSiteRequestModel model)
+        {
+            var result = this.touristSites.AddTouristSite(
+                model.Name,
+                model.Description, 
+                model.Address,
+                model.Latitude,
+                model.Longitude,
+                model.ParentTouristSiteId);
+
+            var mapper = AutoMapperConfig.MapperConfig.CreateMapper();
+
+            var mappedResult = mapper.Map<SimpleTouristSiteResponseModel>(result);
+
+            return this.Json(mappedResult);
+        }
     }
 }

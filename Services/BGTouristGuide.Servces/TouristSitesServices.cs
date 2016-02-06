@@ -116,5 +116,31 @@
 
             return parentTouristSite;
         }
+
+        public TouristSite AddTouristSite(
+            string name,
+            string description, 
+            string address,
+            double latitude, 
+            double longitude,
+            int parentTouristSiteId)
+        {
+            TouristSite touristSite = new TouristSite
+            {
+                Name = name,
+                Description = description,
+                Address = address,
+                Latitude = latitude,
+                Longitude = longitude,
+                Status = TouristSiteStatus.WaitingForApproval,
+                ParentTouristSiteId = parentTouristSiteId
+            };
+
+            this.touristSites.Add(touristSite);
+
+            this.touristSites.SaveChanges();
+
+            return touristSite;
+        }
     }
 }

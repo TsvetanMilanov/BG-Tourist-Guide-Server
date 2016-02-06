@@ -23,5 +23,13 @@
         TouristSite GetTouristSiteById(int id);
 
         ParentTouristSite AddParentTouristSite(string name, string description, ParentTouristSiteType type);
+
+        TouristSite AddTouristSite(
+            string name,
+            string description,
+            string address,
+            double latitude,
+            double longitude,
+            int parentTouristSiteId);
     }
 }

@@ -17,7 +17,7 @@
         public const int MinTouristSiteNameLength = 1;
         public const int MaxTouristSiteNameLength = 100;
 
-        public const int MinTouristSiteDescriptionLength = 20;
+        public const int MinTouristSiteDescriptionLength = 5;
         public const int MaxTouristSiteDescriptionLength = 5000;
 
         public const int MinTouristSiteAddressLength = 5;

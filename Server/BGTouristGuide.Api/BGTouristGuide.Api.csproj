@@ -226,6 +226,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\RequestModels\TouristSites\ParentTouristSiteRequestModel.cs" />
+    <Compile Include="Models\RequestModels\TouristSites\TouristSiteRequestModel.cs" />
     <Compile Include="Models\ResponseModels\TouristSites\FullTouristSiteResponseModel.cs" />
     <Compile Include="Models\ResponseModels\TouristSites\SimpleParentTouristSiteResponseModel.cs" />
     <Compile Include="Models\ResponseModels\TouristSites\SimpleTouristSiteResponseModel.cs" />
