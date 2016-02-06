@@ -26,15 +26,6 @@
             return this.parentTouristSites.All();
         }
 
-        public ParentTouristSite GetParentTouristSiteById(int id)
-        {
-            ParentTouristSite result = this.parentTouristSites.All()
-                .Where(p => p.Id == id)
-                .FirstOrDefault();
-
-            return result;
-        }
-
         public IQueryable<TouristSite> GetByTitleAndDescriptionSearch(string pattern)
         {
             pattern = pattern.ToLower();
@@ -96,9 +87,25 @@
             // TODO: Add check for latitude and longitude.
 
             return this.touristSites.All()
+                .Where(t => t.Status == TouristSiteStatus.ApprovedForVisiting)
                 .OrderBy(t => t.Name)
                 .Skip(page * GlobalConstants.PageSize)
                 .Take(GlobalConstants.PageSize);
+        }
+        
+        public ParentTouristSite GetParentTouristSiteById(int id)
+        {
+            ParentTouristSite result = this.parentTouristSites.All()
+                .Where(p => p.Id == id)
+                .FirstOrDefault();
+
+            var visibleResults = result.SubTouristSites
+                .Where(t => t.Status == TouristSiteStatus.ApprovedForVisiting)
+                .ToList();
+
+            result.SubTouristSites = visibleResults;
+
+            return result;
         }
 
         public ParentTouristSite AddParentTouristSite(string name, string description, ParentTouristSiteType type)
