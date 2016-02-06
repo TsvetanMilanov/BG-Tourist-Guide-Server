@@ -16,14 +16,14 @@
     using Microsoft.Owin.Security.Cookies;
     using Microsoft.Owin.Security.OAuth;
 
+    using App_Start;
     using BGTouristGuide.Api.Models;
     using BGTouristGuide.Api.Providers;
     using BGTouristGuide.Api.Results;
     using BGTouristGuide.Models;
-
     using Common.Constants;
     using Utilities;
-
+    using Models.ResponseModels.Users;
     [Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
@@ -393,6 +393,18 @@
                 return GetErrorResult(result);
             }
             return Ok();
+        }
+
+        [Route("Profile")]
+        public IHttpActionResult GetProfileInfo()
+        {
+            var currentUser = this.UserManager.FindById(this.User.Identity.GetUserId());
+
+            var mapper = AutoMapperConfig.MapperConfig.CreateMapper();
+
+            var mappedUser = mapper.Map<FullUserResponseModel>(currentUser);
+
+            return this.Json(mappedUser);
         }
 
         protected override void Dispose(bool disposing)

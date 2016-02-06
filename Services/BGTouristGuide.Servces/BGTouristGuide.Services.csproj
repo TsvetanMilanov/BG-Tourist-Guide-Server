@@ -58,10 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IScoreboardServices.cs" />
+    <Compile Include="Contracts\IUsersServices.cs" />
     <Compile Include="ScoreboardServices.cs" />
     <Compile Include="TouristSitesServices.cs" />
     <Compile Include="Contracts\ITouristSitesServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsersServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\BGTouristGuide.Common\BGTouristGuide.Common.csproj">
