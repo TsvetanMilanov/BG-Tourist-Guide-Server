@@ -98,6 +98,15 @@
         }
 
         [HttpPost]
+        [Route("Rate/{id}")]
+        public IHttpActionResult RateTouristSite(int id, int rating)
+        {
+            this.touristSites.Rate(id, rating, this.User.Identity.GetUserId());
+
+            return this.Ok();
+        }
+
+        [HttpPost]
         [Route("ApproveForRating/{id}")]
         public IHttpActionResult ApproveTouristSiteForRating(int id)
         {

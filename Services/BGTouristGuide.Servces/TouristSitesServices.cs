@@ -195,5 +195,19 @@
 
             this.touristSites.SaveChanges();
         }
+
+        public void Rate(int id, int rating, string userId)
+        {
+            var touristSite = this.touristSites.GetById(id);
+
+            touristSite.Ratings.Add(new Rating
+            {
+                Value = rating,
+                CreatedOn = DateTime.Now,
+                UserId = userId
+            });
+
+            this.touristSites.SaveChanges();
+        }
     }
 }

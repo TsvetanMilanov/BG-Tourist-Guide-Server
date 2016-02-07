@@ -39,5 +39,7 @@
         void VisitTouristSite(string userId, int touristSiteId);
 
         void ChangeStatus(int id, TouristSiteStatus status);
+
+        void Rate(int id, int rating, string userId);
     }
 }
