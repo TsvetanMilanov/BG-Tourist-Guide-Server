@@ -44,6 +44,8 @@
 
             var mappedResult = mapper.Map<IEnumerable<ScoreboardResponseModel>>(result);
 
+            mappedResult = mappedResult.OrderByDescending(u => u.Rating);
+
             return this.Json(mappedResult);
         }
     }
