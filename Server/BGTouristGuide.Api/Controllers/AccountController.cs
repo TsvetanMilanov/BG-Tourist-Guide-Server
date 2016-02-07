@@ -341,7 +341,14 @@
                 Email = model.Email,
                 FirstName = model.FirstName,
                 LastName = model.LastName,
-                RegistrationDate = DateTime.Now
+                RegistrationDate = DateTime.Now,
+                Badges = new List<Badge>
+                {
+                    new Badge
+                    {
+                        Title = BadgeTitle.NewTourist
+                    }
+                }
             };
 
             IdentityResult resultCreateUser = await UserManager.CreateAsync(user, model.Password);

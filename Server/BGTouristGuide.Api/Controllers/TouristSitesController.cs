@@ -9,6 +9,7 @@
     using Services.Contracts;
     using BGTouristGuide.Models;
     using Models.RequestModels.TouristSites;
+    using Microsoft.AspNet.Identity;
     [RoutePrefix("api/TouristSites")]
     public class TouristSitesController : ApiController
     {
@@ -106,6 +107,14 @@
             var mappedResult = mapper.Map<IEnumerable<TouristSiteResponseModel>>(result);
 
             return this.Json(mappedResult);
+        }
+
+        [Authorize]
+        public IHttpActionResult VisitTouristSite(int id)
+        {
+            this.touristSites.VisitTouristSite(this.User.Identity.GetUserId(), id);
+
+            return this.Ok();
         }
 
         [HttpPost]

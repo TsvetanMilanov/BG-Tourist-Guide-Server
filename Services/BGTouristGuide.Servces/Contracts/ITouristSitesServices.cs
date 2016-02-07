@@ -35,5 +35,7 @@
             double latitude,
             double longitude,
             int parentTouristSiteId);
+
+        void VisitTouristSite(string userId, int touristSiteId);
     }
 }

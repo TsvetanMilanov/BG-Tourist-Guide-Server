@@ -12,6 +12,7 @@
     {
         IGenericRepository<ParentTouristSite> parentTouristSites;
         IGenericRepository<TouristSite> touristSites;
+        IGenericRepository<User> users;
 
         public TouristSitesServices(
             IGenericRepository<ParentTouristSite> parentTouristSites,
@@ -170,6 +171,18 @@
                 .Take(GlobalConstants.PageSize);
 
             return result;
+        }
+
+        public void VisitTouristSite(string userId, int touristSiteId)
+        {
+            var touristSite = this.touristSites.GetById(touristSiteId);
+
+            var user = this.users.GetById(userId);
+
+            user.VisitedTouristSites.Add(touristSite);
+            touristSite.Visitors.Add(user);
+
+            this.users.SaveChanges();
         }
     }
 }
