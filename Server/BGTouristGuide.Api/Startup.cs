@@ -38,7 +38,6 @@ namespace BGTouristGuide.Api
             BGTouristGuideDbContext db = kernel.Get<BGTouristGuideDbContext>();
 
             IndexDataImporter indexDataImporter = new IndexDataImporter();
-
             indexDataImporter.Import(db);
         }
     }
