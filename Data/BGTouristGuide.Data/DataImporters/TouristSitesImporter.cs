@@ -543,7 +543,7 @@
             {
                 ParentTouristSite parent = new ParentTouristSite
                 {
-                    Name = $"Забележителност, добавена от потребител № { i + 1 }",
+                    Name = string.Format("Забележителност, добавена от потребител № {0}", i + 1),
                     Description = $"Описание #{ i }",
                     Type = ParentTouristSiteType.UserDefined
                 };
@@ -552,9 +552,9 @@
                 {
                     TouristSite child = new TouristSite
                     {
-                        Name = $"Подзабележителност № { i }.{ j }",
-                        Description = $"Описание { i }.{ j }",
-                        Address = $"Адрес: { i }.{ j }",
+                        Name = string.Format("Подзабележителност № {0}.{1}", i, j),
+                        Description = string.Format("Описание {0}.{1}", i, j),
+                        Address = string.Format("Адрес: {0}.{1}", i, j),
                         Latitude = 43.6111709,
                         Longitude = 22.6705247,
                         Status = TouristSiteStatus.WaitingForApproval
