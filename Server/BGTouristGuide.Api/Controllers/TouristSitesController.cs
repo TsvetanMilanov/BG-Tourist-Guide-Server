@@ -79,7 +79,7 @@
 
             var mapper = AutoMapperConfig.MapperConfig.CreateMapper();
 
-            var mappedResult = mapper.Map<IEnumerable<SimpleTouristSiteResponseModel>>(result);
+            var mappedResult = mapper.Map<IEnumerable<TouristSiteResponseModel>>(result);
 
             return this.Json(mappedResult);
         }
