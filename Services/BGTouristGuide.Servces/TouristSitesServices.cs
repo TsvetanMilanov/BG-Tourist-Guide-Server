@@ -10,16 +10,18 @@
 
     public class TouristSitesServices : ITouristSitesServices
     {
-        IGenericRepository<ParentTouristSite> parentTouristSites;
-        IGenericRepository<TouristSite> touristSites;
-        IGenericRepository<User> users;
+        private IGenericRepository<ParentTouristSite> parentTouristSites;
+        private IGenericRepository<TouristSite> touristSites;
+        private IGenericRepository<User> users;
 
         public TouristSitesServices(
             IGenericRepository<ParentTouristSite> parentTouristSites,
-            IGenericRepository<TouristSite> touristSites)
+            IGenericRepository<TouristSite> touristSites,
+            IGenericRepository<User> users)
         {
             this.parentTouristSites = parentTouristSites;
             this.touristSites = touristSites;
+            this.users = users;
         }
 
         public IQueryable<ParentTouristSite> GetAll()
@@ -93,7 +95,7 @@
                 .Skip(page * GlobalConstants.PageSize)
                 .Take(GlobalConstants.PageSize);
         }
-        
+
         public ParentTouristSite GetParentTouristSiteById(int id)
         {
             ParentTouristSite result = this.parentTouristSites.All()
@@ -127,9 +129,9 @@
 
         public TouristSite AddTouristSite(
             string name,
-            string description, 
+            string description,
             string address,
-            double latitude, 
+            double latitude,
             double longitude,
             int parentTouristSiteId)
         {
