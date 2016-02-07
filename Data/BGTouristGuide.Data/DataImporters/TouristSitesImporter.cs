@@ -544,7 +544,7 @@
                 ParentTouristSite parent = new ParentTouristSite
                 {
                     Name = string.Format("Забележителност, добавена от потребител № {0}", i + 1),
-                    Description = $"Описание #{ i }",
+                    Description = string.Format("Описание #{1}", i),
                     Type = ParentTouristSiteType.UserDefined
                 };
 
