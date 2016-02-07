@@ -186,5 +186,14 @@
 
             this.users.SaveChanges();
         }
+
+        public void ChangeStatus(int id, TouristSiteStatus status)
+        {
+            var touristSite = this.touristSites.GetById(id);
+
+            touristSite.Status = status;
+
+            this.touristSites.SaveChanges();
+        }
     }
 }

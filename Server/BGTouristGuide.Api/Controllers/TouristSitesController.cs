@@ -98,6 +98,24 @@
         }
 
         [HttpGet]
+        [Route("ApproveForRating/{id}")]
+        public IHttpActionResult ApproveTouristSiteForRating(int id)
+        {
+            this.touristSites.ChangeStatus(id, TouristSiteStatus.ApprovedForRating);
+            
+            return this.Ok();
+        }
+
+        [HttpGet]
+        [Route("ApproveForVisiting/{id}")]
+        public IHttpActionResult ApproveTouristSiteForVisiting(int id)
+        {
+            this.touristSites.ChangeStatus(id, TouristSiteStatus.ApprovedForRating);
+
+            return this.Ok();
+        }
+
+        [HttpGet]
         [Route("NearMe")]
         public IHttpActionResult GetTouristSitesNearMe(double latitude, double longitude, int page = 1)
         {

@@ -37,5 +37,7 @@
             int parentTouristSiteId);
 
         void VisitTouristSite(string userId, int touristSiteId);
+
+        void ChangeStatus(int id, TouristSiteStatus status);
     }
 }
