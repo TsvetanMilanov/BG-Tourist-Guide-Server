@@ -10,7 +10,7 @@
     using Microsoft.AspNet.Identity.EntityFramework;
 
     using Common.Constants;
-
+    using System.ComponentModel.DataAnnotations.Schema;
     public class User : IdentityUser
     {
         private ICollection<Badge> badges;
@@ -67,5 +67,8 @@
 
             return userIdentity;
         }
+
+        [NotMapped]
+        public int CalculatedRating { get; set; }
     }
 }

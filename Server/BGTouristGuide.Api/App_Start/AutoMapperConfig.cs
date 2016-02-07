@@ -36,7 +36,7 @@
 
                 mapper.CreateMap<User, ScoreboardResponseModel>().ForMember(
                         m => m.Rating,
-                        opts => opts.MapFrom(u => u.Ratings.Sum(r => r.Value)));
+                        opts => opts.MapFrom(u => u.CalculatedRating));
 
                 mapper.CreateMap<User, FullUserResponseModel>();
 

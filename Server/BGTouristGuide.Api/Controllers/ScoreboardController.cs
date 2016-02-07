@@ -5,6 +5,8 @@
     using System.Web.Http;
 
     using App_Start;
+    using BGTouristGuide.Models;
+    using Common.Constants;
     using Models.ResponseModels.Common;
     using Services.Contracts;
 
@@ -20,6 +22,23 @@
         public IHttpActionResult Get()
         {
             var result = this.scoreboard.GetUsersScoreboard().ToList();
+
+            for (int i = 0; i < result.Count; i++)
+            {
+                var currentItem = result[i];
+
+                foreach (var touristSite in currentItem.VisitedTouristSites)
+                {
+                    if (touristSite.ParentTouristSite.Type == ParentTouristSiteType.GovernemtDefined)
+                    {
+                        currentItem.CalculatedRating += GlobalConstants.OfficialTouristSiteAwardPoints;
+                    }
+                    else
+                    {
+                        currentItem.CalculatedRating += GlobalConstants.UnofficialTouristSiteAwardPoints;
+                    }
+                }
+            }
 
             var mapper = AutoMapperConfig.MapperConfig.CreateMapper();
 
