@@ -110,7 +110,7 @@
         [Route("ApproveForVisiting/{id}")]
         public IHttpActionResult ApproveTouristSiteForVisiting(int id)
         {
-            this.touristSites.ChangeStatus(id, TouristSiteStatus.ApprovedForRating);
+            this.touristSites.ChangeStatus(id, TouristSiteStatus.ApprovedForVisiting);
 
             return this.Ok();
         }
