@@ -4,6 +4,6 @@
 
     public class BadgeResponseModel
     {
-        public BadgeTitle Title { get; set; }
+        public string Title { get; set; }
     }
 }

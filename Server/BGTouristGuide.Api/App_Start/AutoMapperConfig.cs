@@ -8,7 +8,7 @@
     using Models.ResponseModels.Common;
     using Models.ResponseModels.TouristSites;
     using Models.ResponseModels.Users;
-
+    using System;
     public static class AutoMapperConfig
     {
         public static MapperConfiguration MapperConfig;
@@ -40,7 +40,9 @@
 
                 mapper.CreateMap<User, FullUserResponseModel>();
 
-                mapper.CreateMap<Badge, BadgeResponseModel>();
+                mapper.CreateMap<Badge, BadgeResponseModel>().ForMember(
+                        m => m.Title,
+                        opts => opts.MapFrom(b => Enum.GetName(typeof(BadgeTitle), b.Title)));
             });
 
             MapperConfig.AssertConfigurationIsValid();
