@@ -544,7 +544,7 @@
                 ParentTouristSite parent = new ParentTouristSite
                 {
                     Name = string.Format("Забележителност, добавена от потребител № {0}", i + 1),
-                    Description = string.Format("Описание #{1}", i),
+                    Description = string.Format("Описание #{0}", i),
                     Type = ParentTouristSiteType.UserDefined
                 };
 
@@ -566,8 +566,6 @@
                 db.ParentTouristSites.Add(parent);
             }
             #endregion
-
-            db.SaveChanges();
         }
     }
 }
