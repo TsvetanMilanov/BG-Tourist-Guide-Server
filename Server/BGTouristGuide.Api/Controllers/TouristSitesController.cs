@@ -97,7 +97,7 @@
             return this.Json(mappedResult);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("ApproveForRating/{id}")]
         public IHttpActionResult ApproveTouristSiteForRating(int id)
         {
@@ -106,7 +106,7 @@
             return this.Ok();
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("ApproveForVisiting/{id}")]
         public IHttpActionResult ApproveTouristSiteForVisiting(int id)
         {
