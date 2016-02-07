@@ -10,6 +10,7 @@
     using System.IO;
     using Gma.QrCodeNet.Encoding.Windows.Render;
     using System.Drawing.Imaging;
+
     public class QrCodeServices : IQrCodeServices
     {
         public void GenerateQrCodesForIds(string directory, IEnumerable<string> items)
