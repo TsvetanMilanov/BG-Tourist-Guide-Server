@@ -10,6 +10,7 @@
     using BGTouristGuide.Models;
     using Models.RequestModels.TouristSites;
     using Microsoft.AspNet.Identity;
+
     [RoutePrefix("api/TouristSites")]
     public class TouristSitesController : ApiController
     {
