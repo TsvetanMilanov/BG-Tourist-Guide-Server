@@ -16,7 +16,7 @@
             TouristSitesImporter touristSitesDataimporter = new TouristSitesImporter();
 
             // rolesDataImporter.Import(db);
-            usersDataImporter.Import(db);
+            // usersDataImporter.Import(db);
             touristSitesDataimporter.Import(db);
 
             db.SaveChanges();
