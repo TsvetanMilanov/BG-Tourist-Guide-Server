@@ -110,6 +110,8 @@
         }
 
         [Authorize]
+        [HttpPost]
+        [Route("Visit")]
         public IHttpActionResult VisitTouristSite(int id)
         {
             this.touristSites.VisitTouristSite(this.User.Identity.GetUserId(), id);
