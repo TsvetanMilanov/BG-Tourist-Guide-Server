@@ -184,6 +184,33 @@
             user.VisitedTouristSites.Add(touristSite);
             touristSite.Visitors.Add(user);
 
+            foreach (var item in user.VisitedTouristSites)
+            {
+                if (item.ParentTouristSite.Type == ParentTouristSiteType.GovernemtDefined)
+                {
+                    user.CalculatedRating += GlobalConstants.OfficialTouristSiteAwardPoints;
+                }
+                else
+                {
+                    user.CalculatedRating += GlobalConstants.UnofficialTouristSiteAwardPoints;
+                }
+            }
+
+            if (user.CalculatedRating >= GlobalConstants.SecondBadgePoints && user.CalculatedRating < GlobalConstants.ThirdBadgepoints)
+            {
+                user.Badges.Add(new Badge
+                {
+                    Title = BadgeTitle.Tourist
+                });
+            }
+            else if (user.CalculatedRating >= GlobalConstants.ThirdBadgepoints)
+            {
+                user.Badges.Add(new Badge
+                {
+                    Title = BadgeTitle.OldTourist
+                });
+            }
+            
             this.users.SaveChanges();
         }
 
